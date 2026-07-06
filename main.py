@@ -1,24 +1,18 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel
-from PySide6.QtCore import Qt
+
+from PySide6.QtWidgets import QApplication
+
+from app.ui.main_window import MainWindow
 
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
+def main():
+    app = QApplication(sys.argv)
 
-        self.setWindowTitle("♞ KnightOS")
-        self.resize(1200, 800)
+    window = MainWindow()
+    window.show()
 
-        label = QLabel("Welcome to KnightOS")
-        label.setAlignment(Qt.AlignCenter)
-
-        self.setCentralWidget(label)
+    sys.exit(app.exec())
 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-sys.exit(app.exec())
+if __name__ == "__main__":
+    main()
