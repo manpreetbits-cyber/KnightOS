@@ -1,38 +1,91 @@
 """
-KnightOS Theme
+KnightOS Theme - Premium Chess Improvement Operating System
+Modern, elegant, distraction-free design inspired by Apple Keynote, Arc Browser, Linear, Notion, and Raycast
 """
 
 # Window
 WINDOW_WIDTH = 1500
 WINDOW_HEIGHT = 950
 
-# Colors
+# Colors - Pure OLED Dark Mode
 BACKGROUND = "#090B10"
 SIDEBAR = "#11151C"
 CARD = "#171C24"
+CARD_HOVER = "#1E2530"
 
+# Typography
 PRIMARY_TEXT = "#F5F7FA"
 SECONDARY_TEXT = "#A2AAB8"
+TERTIARY_TEXT = "#6B7280"
 
+# Accent Colors
 ACCENT = "#C89B3C"
 ACCENT_HOVER = "#D9AE52"
+ACCENT_PRESSED = "#B88A2C"
 
+# Status Colors
 SUCCESS = "#3FB950"
 WARNING = "#D29922"
 ERROR = "#F85149"
+INFO = "#58A6FF"
 
-# Layout
-SIDEBAR_WIDTH = 250
+# Layout Dimensions
+SIDEBAR_WIDTH = 280
+SIDEBAR_COLLAPSED_WIDTH = 80
+TOPBAR_HEIGHT = 70
 
 # Fonts
 TITLE_SIZE = 34
 HEADING_SIZE = 20
+SUBHEADING_SIZE = 18
 BODY_SIZE = 15
 SMALL_SIZE = 13
+CAPTION_SIZE = 11
 
-# Radius
+# Radius - Smooth rounded corners
 CARD_RADIUS = 18
+BUTTON_RADIUS = 12
+INPUT_RADIUS = 12
+AVATAR_RADIUS = 20
 
 # Spacing
 PADDING = 28
 CARD_PADDING = 24
+SMALL_PADDING = 16
+TINY_PADDING = 12
+
+# Shadows - Subtle elevation
+SHADOW_SMALL = "0 2px 8px rgba(0, 0, 0, 0.3)"
+SHADOW_MEDIUM = "0 4px 16px rgba(0, 0, 0, 0.4)"
+SHADOW_LARGE = "0 8px 32px rgba(0, 0, 0, 0.5)"
+
+# Transitions
+TRANSITION_FAST = "200ms"
+TRANSITION_NORMAL = "300ms"
+TRANSITION_SLOW = "400ms"
+
+# Sidebar
+SIDEBAR_ITEM_HEIGHT = 44
+SIDEBAR_ITEM_PADDING = 12
+SIDEBAR_SECTION_SPACING = 24
+SIDEBAR_ICON_SIZE = 20
+
+# Cards
+CARD_MIN_WIDTH = 280
+CARD_MAX_WIDTH = 400
+
+# Buttons
+BUTTON_HEIGHT = 44
+BUTTON_PADDING = 16
+
+# Input
+INPUT_HEIGHT = 44
+INPUT_PADDING = 16
+
+# Progress
+PROGRESS_HEIGHT = 8
+PROGRESS_RADIUS = 4
+
+# Avatar
+AVATAR_SIZE = 40
+AVATAR_LARGE = 64
