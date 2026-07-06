@@ -38,15 +38,6 @@ KnightOS combines the best design elements from:
 ### ⚙️ System
 - **Settings** - Customize your experience
 
-## Theme
-
-- **Background**: Almost black (#090B10)
-- **Cards**: Subtle elevation (#171C24)
-- **Sidebar**: Slightly lighter (#11151C)
-- **Accent**: Gold (#C89B3C)
-- **Typography**: Soft white (#F5F7FA)
-- **Secondary**: Muted gray (#A2AAB8)
-
 ## Installation
 
 ```bash
@@ -65,12 +56,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## Requirements
 
-- Python 3.8+
-- PySide6 6.6.0+
-- matplotlib 3.8.2+ (for charts)
-- numpy 1.26.4+ (for data processing)
 
 ## Architecture
 
