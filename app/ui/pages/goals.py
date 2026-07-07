@@ -29,7 +29,7 @@ class GoalCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_SMALL};
+            
             border: 1px solid {status_colors[status]};
         """)
         
@@ -133,7 +133,7 @@ class GoalStatsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -229,7 +229,7 @@ class NewGoalCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
             border: 2px dashed rgba(200, 155, 60, 0.3);
         """)
         

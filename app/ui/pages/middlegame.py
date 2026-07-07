@@ -19,7 +19,7 @@ class MiddlegameThemeCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_SMALL};
+            
         """)
         
         layout = QVBoxLayout()
@@ -101,7 +101,7 @@ class MiddlegameExerciseCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_SMALL};
+            
         """)
         
         layout = QVBoxLayout()
@@ -163,7 +163,7 @@ class MiddlegameStatsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()

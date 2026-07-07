@@ -86,7 +86,7 @@ class ProfileSettingsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -121,9 +121,6 @@ class ProfileSettingsCard(QWidget):
             color: {BACKGROUND};
             font-weight: bold;
             font-size: {TITLE_SIZE}px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         """)
         avatar_label.setText("S")
         avatar_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -258,7 +255,7 @@ class AppearanceSettingsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -364,7 +361,7 @@ class NotificationSettingsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -435,7 +432,7 @@ class AboutSettingsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()

@@ -4,7 +4,7 @@ KnightOS Training Plan Page
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame, QPushButton
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QPixmap
+from PySide6.QtGui import QPixmap, QPainter
 
 from app.theme import *
 from app.ui.icons import (
@@ -23,7 +23,7 @@ class TrainingModuleCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_SMALL};
+            
         """)
         
         layout = QVBoxLayout()
@@ -114,7 +114,6 @@ class TrainingModuleCard(QWidget):
     def _create_icon(self, svg_content, width, height, color=ACCENT):
         """Create an icon from SVG content"""
         from PySide6.QtSvg import QSvgRenderer
-        from PySide6.QtGui import QPixmap
         
         renderer = QSvgRenderer()
         svg_with_color = svg_content.replace('stroke="currentColor"', f'stroke="{color}"')
@@ -123,7 +122,10 @@ class TrainingModuleCard(QWidget):
         
         pixmap = QPixmap(width, height)
         pixmap.fill(Qt.GlobalColor.transparent)
-        renderer.render(QPixmap(pixmap))
+        
+        painter = QPainter(pixmap)
+        renderer.render(painter)
+        painter.end()
         
         return pixmap
 
@@ -138,7 +140,7 @@ class WeeklyScheduleCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -295,7 +297,7 @@ class TrainingStatsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()

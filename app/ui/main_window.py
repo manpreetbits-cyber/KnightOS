@@ -2,7 +2,7 @@
 KnightOS Main Window - Premium Chess Improvement Operating System
 """
 
-from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QStackedWidget
+from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QStackedWidget
 from PySide6.QtCore import Qt
 
 from app.theme import BACKGROUND, WINDOW_WIDTH, WINDOW_HEIGHT

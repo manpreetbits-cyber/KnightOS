@@ -116,9 +116,6 @@ class TopBar(QWidget):
             border-radius: {AVATAR_RADIUS}px;
             color: {BACKGROUND};
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         """)
         user_avatar.setText("S")
         user_avatar.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -137,7 +134,7 @@ class TopBar(QWidget):
         """)
         
         user_dropdown = QPushButton()
-        user_dropdown.setIcon(self._create_icon("▼", 12, 12, SECONDARY_TEXT))
+        user_dropdown.setIcon(self._create_icon("<svg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M6 9L12 15L18 9' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>", 12, 12, SECONDARY_TEXT))
         user_dropdown.setFixedSize(20, 20)
         user_dropdown.setStyleSheet(f"""
             QPushButton {{
@@ -169,32 +166,21 @@ class TopBar(QWidget):
     def _create_icon(self, svg_content, width, height, color):
         """Create an icon from SVG content"""
         from PySide6.QtSvg import QSvgRenderer
-        from PySide6.QtGui import QImage
+        from PySide6.QtGui import QPixmap, QPainter
         
         renderer = QSvgRenderer()
         svg_with_color = svg_content.replace('stroke="currentColor"', f'stroke="{color}"')
         svg_with_color = svg_with_color.replace('fill="currentColor"', f'fill="{color}"')
         renderer.load(svg_with_color.encode())
         
-        image = QImage(width, height, QImage.Format.Format_ARGB32)
-        image.fill(Qt.GlobalColor.transparent)
+        pixmap = QPixmap(width, height)
+        pixmap.fill(Qt.GlobalColor.transparent)
         
-        painter = QPixmap(width, height)
-        painter.fill(Qt.GlobalColor.transparent)
+        painter = QPainter(pixmap)
+        renderer.render(painter)
+        painter.end()
         
-        svg_painter = QPixmap(width, height)
-        svg_painter.fill(Qt.GlobalColor.transparent)
-        
-        svg_renderer = QSvgRenderer()
-        svg_renderer.load(svg_with_color.encode())
-        
-        p = QPixmap(width, height)
-        p.fill(Qt.GlobalColor.transparent)
-        
-        painter = QPixmap(p)
-        svg_renderer.render(painter)
-        
-        return QIcon(p).pixmap(width, height)
+        return QIcon(pixmap).pixmap(width, height)
     
     def get_search_text(self):
         return self.search_input.text()

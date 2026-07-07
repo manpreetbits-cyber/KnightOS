@@ -2,9 +2,9 @@
 KnightOS Sidebar - Premium Navigation
 """
 
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QFrame
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QFrame
 from PySide6.QtCore import Qt, Signal
-from PySide6.QtGui import QPixmap, QIcon
+from PySide6.QtGui import QPixmap, QIcon, QPainter
 
 from app.theme import *
 from app.ui.icons import (
@@ -95,8 +95,11 @@ class SidebarItem(QPushButton):
         
         pixmap = QPixmap(width, height)
         pixmap.fill(Qt.GlobalColor.transparent)
-        renderer.render(QPixmap(pixmap))
-        
+
+        painter = QPainter(pixmap)
+        renderer.render(painter)
+        painter.end()
+
         return pixmap
     
     def set_active(self, active):
@@ -156,6 +159,7 @@ class Sidebar(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         
+        self.items = {}
         self.setFixedWidth(SIDEBAR_WIDTH)
         self.setStyleSheet(f"""
             background-color: {SIDEBAR};
@@ -203,7 +207,6 @@ class Sidebar(QWidget):
         self.setLayout(layout)
         
         # Store items for active state management
-        self.items = {}
         self._collect_items(logo_container)
     
     def _add_section(self, layout, title, items):
@@ -246,7 +249,11 @@ class Sidebar(QWidget):
     
     def _collect_items(self, widget):
         """Recursively collect all SidebarItem instances"""
-        pass
+        for child in widget.findChildren(QWidget):
+            if isinstance(child, SidebarItem):
+                self.items[child.text] = child
+            # recurse into child widgets
+            self._collect_items(child)
     
     def _on_item_clicked(self, page_name):
         """Handle navigation item click"""
@@ -260,16 +267,18 @@ class Sidebar(QWidget):
         """Create an icon from SVG content"""
         from PySide6.QtSvg import QSvgRenderer
         from PySide6.QtGui import QPixmap
-        
         renderer = QSvgRenderer()
         svg_with_color = svg_content.replace('stroke="currentColor"', f'stroke="{color}"')
         svg_with_color = svg_with_color.replace('fill="currentColor"', f'fill="{color}"')
         renderer.load(svg_with_color.encode())
-        
+
         pixmap = QPixmap(width, height)
         pixmap.fill(Qt.GlobalColor.transparent)
-        renderer.render(QPixmap(pixmap))
-        
+
+        painter = QPainter(pixmap)
+        renderer.render(painter)
+        painter.end()
+
         return pixmap
     
     def set_active_page(self, page_name):

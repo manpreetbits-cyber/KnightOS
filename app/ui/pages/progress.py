@@ -22,7 +22,7 @@ class RadarChartWidget(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -105,7 +105,7 @@ class RatingGraphWidget(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -227,7 +227,7 @@ class TrainingStreakWidget(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -318,7 +318,7 @@ class ProgressStatsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()

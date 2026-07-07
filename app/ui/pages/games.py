@@ -35,7 +35,7 @@ class GameCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_SMALL};
+            
         """)
         
         layout = QVBoxLayout()
@@ -162,7 +162,7 @@ class GameCard(QWidget):
     def _create_icon(self, svg_content, width, height, color):
         """Create an icon from SVG content"""
         from PySide6.QtSvg import QSvgRenderer
-        from PySide6.QtGui import QPixmap
+        from PySide6.QtGui import QPixmap, QPainter
         
         if not svg_content:
             return QPixmap(width, height)
@@ -174,7 +174,10 @@ class GameCard(QWidget):
         
         pixmap = QPixmap(width, height)
         pixmap.fill(Qt.GlobalColor.transparent)
-        renderer.render(QPixmap(pixmap))
+        
+        painter = QPainter(pixmap)
+        renderer.render(painter)
+        painter.end()
         
         return pixmap
 
@@ -189,7 +192,7 @@ class GameFiltersCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()

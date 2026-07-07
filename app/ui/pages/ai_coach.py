@@ -22,7 +22,7 @@ class CoachRecommendationPanel(QWidget):
             background: linear-gradient(135deg, {CARD} 0%, {CARD_HOVER} 100%);
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING + 8}px;
-            box-shadow: {SHADOW_LARGE};
+            
             border: 1px solid rgba(200, 155, 60, 0.3);
         """)
         
@@ -154,7 +154,7 @@ class CoachRecommendationPanel(QWidget):
     def _create_icon(self, svg_content, width, height, color=ACCENT):
         """Create an icon from SVG content"""
         from PySide6.QtSvg import QSvgRenderer
-        from PySide6.QtGui import QPixmap
+        from PySide6.QtGui import QPixmap, QPainter
         
         renderer = QSvgRenderer()
         svg_with_color = svg_content.replace('stroke="currentColor"', f'stroke="{color}"')
@@ -163,7 +163,10 @@ class CoachRecommendationPanel(QWidget):
         
         pixmap = QPixmap(width, height)
         pixmap.fill(Qt.GlobalColor.transparent)
-        renderer.render(QPixmap(pixmap))
+        
+        painter = QPainter(pixmap)
+        renderer.render(painter)
+        painter.end()
         
         return pixmap
 
@@ -178,7 +181,7 @@ class CoachInputCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
@@ -298,7 +301,7 @@ class ImprovementAreasCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()

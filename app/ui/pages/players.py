@@ -34,7 +34,7 @@ class PlayerCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_SMALL};
+            
         """)
         
         layout = QVBoxLayout()
@@ -56,9 +56,6 @@ class PlayerCard(QWidget):
             border-radius: {AVATAR_RADIUS}px;
             color: {BACKGROUND};
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         """)
         avatar_label.setText(name[0] if name else "?")
         avatar_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -136,7 +133,7 @@ class PlayerCard(QWidget):
     def _create_icon(self, svg_content, width, height, color):
         """Create an icon from SVG content"""
         from PySide6.QtSvg import QSvgRenderer
-        from PySide6.QtGui import QPixmap
+        from PySide6.QtGui import QPixmap, QPainter
         
         if not svg_content:
             return QPixmap(width, height)
@@ -148,7 +145,10 @@ class PlayerCard(QWidget):
         
         pixmap = QPixmap(width, height)
         pixmap.fill(Qt.GlobalColor.transparent)
-        renderer.render(QPixmap(pixmap))
+        
+        painter = QPainter(pixmap)
+        renderer.render(painter)
+        painter.end()
         
         return pixmap
 
@@ -163,7 +163,7 @@ class PlayerStatsCard(QWidget):
             background-color: {CARD};
             border-radius: {CARD_RADIUS}px;
             padding: {CARD_PADDING}px;
-            box-shadow: {SHADOW_MEDIUM};
+            
         """)
         
         layout = QVBoxLayout()
